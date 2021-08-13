@@ -1,6 +1,9 @@
 This file was used to collect basic information about isogeny classes as a part
-of the 2019 CAD REU at Boise State. To use it, first install SageMath. Then,
-edit isogeny.py to set your parameters and run `sage isogeny.py`.
+of the 2019 CAD REU at Boise State. This research was funded by the National
+Science Foundation (DMS-1659872)
+
+To use this code, first install SageMath. Then, edit isogeny.py to set your
+parameters and run `sage isogeny.py`.
 
 Please note that this file was written to quickly collect preliminary data about
 isogeny classes, and is by no means efficient.
