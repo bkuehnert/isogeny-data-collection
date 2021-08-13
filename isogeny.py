@@ -17,9 +17,9 @@ import sys
 
 # parameters
 lower_limit = 5
-upper_limit = 100
+upper_limit = 12
 exp = 1 # exponent to raise to
-j_invariant = 1728 # can be either 0 or 1728.
+j_invariant = 0 # can be either 0 or 1728.
 
 #takes the abelian_group, G, of an Elliptic Curve
 #and returns string which represents the canonical
@@ -34,7 +34,7 @@ def getGroupStructure(G):
 #where 's' is group structure of curve y^2=x^3+b over Z_p
 def getCurveInfo(b,p, E):
     s = getGroupStructure(E.abelian_group())
-    return ("(%d, %s)" % (b, s))
+    return ("({}, {})".format(b, s))
 
 def getCurve(b, p, j):
     if j == 0:
@@ -52,11 +52,11 @@ for p in primes:
     f.write("q = %d\n" % p)
 
     # Since curves have j invariant 0 or 1728, they can be easily parameterized.
-    B = list(range(p))
-    for b in range(p):
+    B = list(GF(p))
+    for b in list(GF(p)):
         # If the curve would be singular, throw it away.
-        if((j_invariant == 0 and (27*b**2) % p == 0 or
-            (j_invariant == 1728 and b**3 % p == 0))):
+        if((j_invariant == 0 and (27*b**2) == 0 or
+            (j_invariant == 1728 and b**3 == 0))):
             B.remove(b)
     B2 = B[:]
 
